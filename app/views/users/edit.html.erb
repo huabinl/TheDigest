@@ -1,0 +1,11 @@
+<h1>Editing User</h1>
+<div class="btn-group  pull-right" role="group">
+  <%= link_to 'Delete Account', delete_user_path(current_user), method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default" %>
+</div>
+<br />
+<br />
+<br />
+
+<%= render 'form' %>
+
+<%= link_to 'Back', articles_path %>

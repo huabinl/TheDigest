@@ -1,0 +1,14 @@
+<h1>UserMailer#Newly updated articles</h1>
+
+<% if @art_sent != [] %>
+<h3>
+  <%= @greeting %>, here is the updated articles!
+</h3>
+  <% @art_sent.each do |article| %>
+    <p><%= article.title.html_safe %></p>
+    <p><%= article.link %></p>
+    <p>------------------------------------------------</p>
+  <% end %>
+<% else %>
+  <h3> Sorry, No more Updated Articles!</h3>
+<% end %>

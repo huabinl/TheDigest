@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Articles</h1>
+
+<% if !@articles.nil? %>
+  <% @articles.each do |article| %>
+    <%= render partial: 'index_article', locals: {article: article} %>
+  <% end %>
+<% end %>
+<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>

@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3><%= @article.title.html_safe %></h3>
+  </div>
+
+  <div class="panel-body">
+    <p>
+      <strong>Source:</strong>
+      <%= @article.source.name %>
+    </p>
+  </div>
+
+  <div class="panel-body">
+    <p>
+      <strong>Link:</strong>
+      <% if !@article.link.eql?('n/a') %>
+        <%= link_to @article.link, @article.link %>
+      <% else %>
+        <%= @article.link %>
+      <% end %>
+    </p>
+  </div>
+
+  <div class="panel-body">
+    <p>
+      <strong>Author:</strong>
+      <%= @article.author %>
+    </p>
+  </div>  
+
+  <div class="panel-body">
+    <p>
+      <strong>Summary:</strong>
+      <%= @article.summary.html_safe %>
+    </p>
+  </div>
+
+  <div class="panel-body">
+    <p>
+      <strong>Publish Date:</strong>
+      <%= @article.pub_date.strftime("%d-%m-%y  %H:%M:%S").to_s %>
+    </p>
+  </div>  
+
+  <div class="panel-body">
+    <p>
+      <strong>Image:</strong>
+      <% if !@article.image.eql?('n/a') %>
+        <% images = @article.image.split(',') %>
+        <% images.each do |i| %>
+          <%= link_to i, i %> &nbsp;&nbsp; 
+        <% end %>
+      <% else %>
+        <%= @article.image %>
+      <% end %>
+    </p>
+  </div>
+
+  <div class="panel-body">
+    <p>
+      <strong>Tagged:</strong>
+      <% unless @article.tag_list.empty? %>
+        <%= @article.tag_list.join(' ') %>
+      <% end %>
+    </p>
+  </div>
+</div>
+
+<div class="btn-group pull-right" role="group">
+  <%= link_to 'Back', articles_path ,class: "btn btn-default" %>
+</div>

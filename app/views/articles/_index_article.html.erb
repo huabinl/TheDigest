@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2><%= article.title.html_safe %></h2>
+    <p><%= truncate(article.summary.html_safe, length: 100, separator: ' ') %></p>
+    <% unless article.tag_list.empty? %>
+      <p>Tagged: <%= article.tag_list.join(' ') %></p>
+    <% end %>
+    <div class="btn-group pull-right" role="group">
+      <%= link_to 'Show', article, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>
